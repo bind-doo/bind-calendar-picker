@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+  <title>Stencil Component Starter</title>
+  <script src="/build/wc-calendar.js"></script>
+  <link rel="stylesheet" href="/build/wc-calendar.css">
+</head>
+
+<body>
+
+  <bind-calendar-picker show-toolbar="true" date-picker="true"></bind-calendar-picker>
+  <button onclick="setDate(3,6,2033)">Set date</button>
+  <button onclick="getEvents()">get events </button>
+  <button onclick="setEvents()">set events</button>
+  <button onclick="getMonthDays()">get month days</button>
+
+</body>
+
+<script>
+  const component = document.querySelector('bind-calendar-picker');
+
+  (function () {
+    const component = document.querySelector('bind-calendar-picker');
+
+    component.addEventListener("onDaySelected", event => {
+      console.log(event.detail);
+    });
+
+    component.addEventListener("onRangeSelected", event => {
+      console.log(event.detail);
+    });
+
+  })();
+
+  function setDate(day, month, year) {
+    component.selectDay(day, month, year)
+  }
+
+
+  (function () {
+    const component = document.querySelector('bind-calendar-picker');
+
+    component.addEventListener("onAddEvent", event => {
+      testEventData = event.detail.eventDay;
+      addEvent();
+    });
+
+    component.addEventListener('onReplaceEvent', event => {
+      replaceTestEvent = event.detail.eventDay[0];
+      replaceEvent();
+
+    });
+
+    component.addEventListener("onRemoveEvent", event => {
+      removeTestEvent = event.detail.eventDay[0];
+      removeEvent();
+    });
+  })();
+
+  events = [
+    {
+      day: 2,
+      month: 8,
+      year: 2018,
+      color: 'red',
+      data: { title: 'meeting', time: '14:00' }
+    },
+    {
+      day: 2,
+      month: 9,
+      year: 2018,
+      color: 'red',
+      data: { title: 'agd', time: '14:00' }
+    },
+    {
+      day: 5,
+      month: 11,
+      year: 2018,
+      color: 'red',
+      data: { title: 'meetgdding', time: '14:00' }
+    },
+    {
+      day: 2,
+      month: 7,
+      year: 2018,
+      color: 'red',
+      data: { title: 'meethffing', time: '14:00' }
+    },
+    {
+      day: 3,
+      month: 7,
+      year: 2018,
+      color: 'green',
+      data: { title: 'betonirali', workers: ['azem', 'almir'], location: 'wiesbaden' }
+    },
+    {
+      day: 2,
+      month: 7,
+      year: 2018,
+      color: 'black',
+      data: { title: 'therapy' }
+    },
+    {
+      day: 4,
+      month: 7,
+      year: 2018,
+      color: 'black',
+      data: { title: 'hu ha ' }
+    },
+    {
+      day: 5,
+      month: 7,
+      year: 2018,
+      color: 'black',
+      data: { title: 'hu ha ' }
+    },
+    {
+      day: 4,
+      month: 1,
+      year: 2018,
+      color: 'pink',
+      data: { title: 'amazing' }
+    },
+    {
+      day: 7,
+      month: 12,
+      year: 2017,
+      color: 'red',
+      data: { title: 'buuu' }
+    },
+    {
+      day: 5,
+      month: 5,
+      year: 2044,
+      color: 'blue',
+      data: { title: 'hehehe' }
+    },
+    {
+      day: 6,
+      month: 4,
+      year: 2018,
+      color: 'grey',
+      data: { title: 'hello aaaf', time: 'yesterday' }
+    }
+  ]
+  removeTestEvent = {};
+  replaceTestEvent = {};
+
+  testEventData = {};
+
+  function replaceEvent() {
+    let event = replaceTestEvent;
+    event.color = 'turquise';
+    event.data.title = 'hello world';
+    component.replaceEvent(event);
+  }
+
+  function getEvents() {
+    console.log(component.getEvents());
+  }
+
+  function setEvents() {
+    component.setEvents(events);
+  }
+
+  function addEvent() {
+    const { day, month, year } = testEventData;
+
+    let event = {
+      day: day,
+      month: month,
+      year: year,
+      color: 'pinquish',
+      data: { title: 'pinky' }
+    };
+
+    component.addEvent(event);
+  }
+
+  function getMonthDays() {
+    console.log(component.getFullMonth());
+  }
+
+  function removeEvent() {
+    component.removeEvent(removeTestEvent);
+  }
+</script>
+
+</html>
