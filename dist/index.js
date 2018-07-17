@@ -1,1 +1,0 @@
-// WcCalendar: CommonJS Main
