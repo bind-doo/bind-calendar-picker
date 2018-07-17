@@ -19,21 +19,21 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@stencil/core": "^0.9.1",
+    "@stencil/core": "^0.10.7",
     "@stencil/dev-server": "latest",
     "@stencil/utils": "latest",
     "@stencil/sass": "0.0.5",
-    "@types/jest": "^21.1.1",
-    "jest": "^21.2.1"
+    "@types/jest": "^23.3.0",
+    "jest": "^23.4.1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://ac1dev@bitbucket.org/ac1dev/calendar-stenciljs-component.git"
+    "url": "git+https://github.com/bind-doo/bind-calendar-picker.git"
   },
-  "author": "Bind D.o.o.",
+  "author": "Bind d.o.o.",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/binddoo/stenciljs"
+    "url": "https://github.com/bind-doo/bind-calendar-picker/issues"
   },
   "homepage": "https://www.bind.ba",
   "jest": {
