@@ -4,27 +4,102 @@
 
 This is a calendar picker web component. 
 
-# Stencil
+# Usage
 
-Stencil is a compiler for building fast web apps using Web Components.
+## Angular (ver. 6+)
+
+- Install component from npm
+```bash
+npm install --save bind-calendar-picker
+```
+
+- Add `{ "glob": "**/*", "input": "node_modules/bind-calendar-picker/dist", "output": "assets/bind-calendar-picker" }` to `angular.json` into assets section
+```json
+  "assets": [
+    "src/favicon.ico",
+    "src/assets",
+    { "glob": "**/*", "input": "node_modules/bind-calendar-picker/dist", "output": "assets/bind-calendar-picker" }
+  ]
+```
+
+- Import `CUSTOM_ELEMENTS_SCHEMA` into angular module from `@angular/core`
+
+```javascript
+  import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+```
+
+- Add `CUSTOM_ELEMENTS_SCHEMA` to @NgModule declaration into `schemas` section
+
+```javascript
+  @NgModule({
+    declarations: [
+      AppComponent
+    ],
+    imports: [
+      BrowserModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
+    schemas: [
+      CUSTOM_ELEMENTS_SCHEMA
+    ]
+  })
+```
+
+- Edit `tsconfig.json` set `allowJs` to `true`
+```json
+  {
+    "compileOnSave": false,
+    "compilerOptions": {
+      "baseUrl": "./",
+      "outDir": "./dist/out-tsc",
+      "sourceMap": true,
+      "declaration": false,
+      "moduleResolution": "node",
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "target": "es5",
+      "allowJs": true,
+      "typeRoots": [
+        "node_modules/@types"
+      ],
+      "lib": [
+        "es2017",
+        "dom"
+      ]
+    }
+  }
+```
+- Use `<bind-calendar-picker></bind-calendar-picker>` tag anywhere in the project.
+
+
+## Stencil
+
+[Stencil](https://stenciljs.com/) is a compiler for building fast web apps using Web Components.
 
 Stencil combines the best concepts of the most popular frontend frameworks into a compile-time rather than run-time tool.  Stencil takes TypeScript, JSX, a tiny virtual DOM layer, efficient one-way data binding, an asynchronous rendering pipeline (similar to React Fiber), and lazy-loading out of the box, and generates 100% standards-based Web Components that run in any browser supporting the Custom Elements v1 spec.
 
 Stencil components are just Web Components, so they work in any major framework or with no framework at all.
 
-## Getting Started
+## Issues, questions or feature requests
+
+Please use github [issues](https://github.com/bind-doo/bind-calendar-picker/issues).
+
+## How to contribute
 
 Clone this repo to a new directory:
 
 ```bash
 git clone https://github.com/bind-doo/bind-calendar-picker.git bind-calendar-picker
 cd bind-calendar-picker
+npm install
 ```
+
+Create new branch with the feature that you are developing. 
 
 and run:
 
 ```bash
-npm install
 npm start
 ```
 
@@ -45,4 +120,31 @@ To run the unit tests for the components, run:
 ```bash
 npm test
 ```
+
+Submit PR with the description of what is built or fixed. 
+
+## License
+
+MIT License
+
+Copyright (c) Bind doo
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
 
