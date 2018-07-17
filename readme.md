@@ -22,6 +22,24 @@ npm install --save bind-calendar-picker
   ]
 ```
 
+- Add `<script src='assets/bind-calendar-picker/wc-calendar.js'></script>` to head section of `index.html`
+```html
+  <!doctype html>
+  <html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>TestCalendar</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <script src='assets/bind-calendar-picker/wc-calendar.js'></script>
+  </head>
+  <body>
+    <app-root></app-root>
+  </body>
+  </html>
+```
+
 - Import `CUSTOM_ELEMENTS_SCHEMA` into angular module from `@angular/core`
 
 ```javascript
@@ -70,6 +88,7 @@ npm install --save bind-calendar-picker
     }
   }
 ```
+
 - Use `<bind-calendar-picker></bind-calendar-picker>` tag anywhere in the project.
 
 
