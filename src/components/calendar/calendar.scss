@@ -6,7 +6,7 @@ $grey-accent: #4b4b4b;
 $danger: #f55b5b;
 
 
-.bc_calendar-container {
+.bc-calendar-container {
   margin: 0 auto;
   background-color: $background-color;
   -webkit-border-radius: 2px;
@@ -15,20 +15,20 @@ $danger: #f55b5b;
   padding: 16px;
 }
 
-.bc_calendar-header {
+.bc-calendar-header {
   display: grid;
   grid-template-columns: 15% 70% 15%;
   margin-bottom: 18px;
 }
 
-.bc_header-year {
+.bc-header-year {
   text-align: center;
   font-size: 1.2em;
   font-family: "Ubuntu Regular";
   color: $grey-accent;
 }
 
-.bc_header-right {
+.bc-header-right {
   text-align: right;
 }
 
@@ -44,7 +44,7 @@ $danger: #f55b5b;
   }
 }
 
-.bc_nav-button-left {
+.bc-nav-button-left {
   @extend %blank-button;
 	background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBkPSJNMjE3LjkgMjU2TDM0NSAxMjljOS40LTkuNCA5LjQtMjQuNiAwLTMzLjktOS40LTkuNC0yNC42LTkuMy0zNCAwTDE2NyAyMzljLTkuMSA5LjEtOS4zIDIzLjctLjcgMzMuMUwzMTAuOSA0MTdjNC43IDQuNyAxMC45IDcgMTcgN3MxMi4zLTIuMyAxNy03YzkuNC05LjQgOS40LTI0LjYgMC0zMy45TDIxNy45IDI1NnoiLz48L3N2Zz4=);
   background-repeat: no-repeat;
@@ -53,7 +53,7 @@ $danger: #f55b5b;
   cursor: pointer;
 }
 
-.bc_nav-button-right {
+.bc-nav-button-right {
   @extend %blank-button;
   background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBkPSJNMjk0LjEgMjU2TDE2NyAxMjljLTkuNC05LjQtOS40LTI0LjYgMC0zMy45czI0LjYtOS4zIDM0IDBMMzQ1IDIzOWM5LjEgOS4xIDkuMyAyMy43LjcgMzMuMUwyMDEuMSA0MTdjLTQuNyA0LjctMTAuOSA3LTE3IDdzLTEyLjMtMi4zLTE3LTdjLTkuNC05LjQtOS40LTI0LjYgMC0zMy45bDEyNy0xMjcuMXoiLz48L3N2Zz4=);
   background-repeat: no-repeat;
@@ -73,24 +73,24 @@ $danger: #f55b5b;
   cursor: pointer !important;
 }
 
-.bc_selection-select {
+.bc-selection-select {
   @extend %base-select;
   width: 100%;
   padding: 4px;
   border-radius: 4px;
 }
 
-.bc_header-month-select {
+.bc-header-month-select {
   @extend %base-select;
   margin-right: 10px;
 }
 
-.bc_header-month {
+.bc-header-month {
   font-family: "Ubuntu Regular";
   margin-right: 4px;
 }
 
-.bc_year-input-number {
+.bc-year-input-number {
   display: inline-block;
   width: 3.3em;
   border: none;
@@ -101,19 +101,22 @@ $danger: #f55b5b;
   color: #4a4a4c;
 }
 
-.bc_calendar-days-name {
+.bc-calendar-days-name {
   margin-bottom: 20px;
 }
 
-.bc_day-name {
+.bc-day-name {
   font-family: "Ubuntu Regular";
   font-weight: 600;
   text-align: center;
   color: $grey-accent;
-
 }
 
-.bc_calendar-days {
+.bc-day-number {
+  color: #403b40;
+}
+
+.bc-calendar-days {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-auto-rows: 1fr;
@@ -122,41 +125,41 @@ $danger: #f55b5b;
   text-align: center;
 }
 
-.bc_calendar-days > div {
+.bc-calendar-days > div {
   font-family: "Ubuntu Light";
   padding: 4px;
   cursor: pointer;
 }
 
-.bc_active-day {
+.bc-active-day {
   background-color: $selected-color;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
   color: white;
 
-  .bc_muted-day, .bc_current-day {
+  .bc-muted-day, .bc-current-day, .bc-day-number {
     color: white !important;
   }
 }
 
-.bc_range-end-day {
+.bc-range-end-day {
   background-color: $danger;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
   color: white;
 
-  .bc_muted-day, .bc_current-day {
+  .bc-muted-day, .bc-current-day {
     color: white !important;
   }
 }
 
-.bc_muted-day {
+.bc-muted-day {
   color: #adadad;
 }
 
-.bc_day-event-dot {
+.bc-day-event-dot {
   height: 5px;
   width: 5px;
   background-color: $dot-color;
@@ -168,19 +171,19 @@ $danger: #f55b5b;
 }
 
 @media (min-width: 440px) {
-  .bc_day-event-dot {
+  .bc-day-event-dot {
     left: 6.65vw;
   }
 }
 
 @media (min-width: 1150px) {
-  .bc_day-event-dot {
+  .bc-day-event-dot {
     left: 6.95vw;
   }
 }
 
 
-.bc_current-day {
+.bc-current-day {
   color: $selected-color !important;
 }
 
@@ -197,7 +200,7 @@ $danger: #f55b5b;
   background-color: #d6d6d6;
 }
 
-.bc_calendar-toolbar-top {
+.bc-calendar-toolbar-top {
   display: grid;
   grid-template-columns: 10% 90%;
   border-top: 1px solid $light-grey-accent;
@@ -206,24 +209,24 @@ $danger: #f55b5b;
   margin-bottom: 10px;
 }
 
-.bc_calendar-toolbar-bottom {
+.bc-calendar-toolbar-bottom {
   width: 100%;
 }
 
-.bc_toolbar-button {
+.bc-toolbar-button {
   @extend %base-button;
 }
 
-.bc_toolbar-action-button {
+.bc-toolbar-action-button {
   @extend %base-button;
   margin-left: 4px;
 }
 
-.bc_toolbar-end {
+.bc-toolbar-end {
   text-align: right;
 }
 
-.bc_button-danger {
+.bc-button-danger {
   background-color: $danger;
   color: white;
 
@@ -232,7 +235,7 @@ $danger: #f55b5b;
   }
 }
 
-.bc_button-success {
+.bc-button-success {
   background-color: #21da9c;
   color: white;
 
@@ -241,11 +244,11 @@ $danger: #f55b5b;
   }
 }
 
-.bc_date-picker {
+.bc-date-picker {
   margin: 16px 0 16px 0;
 }
 
-input[type=text].bc_date-picker-input {
+input[type=text].bc-date-picker-input {
   width: 100%;
   background-color: white;
   border: 2px solid #aaa;
@@ -258,21 +261,21 @@ input[type=text].bc_date-picker-input {
   cursor: pointer;
 }
 
-input[type=text].bc_date-picker-input:focus {
+input[type=text].bc-date-picker-input:focus {
   border-color: dodgerBlue;
   box-shadow: 0 0 8px 0 dodgerBlue;
 }
 
-.bc_input-with-icon input[type=text].bc_date-picker-input {
+.bc-input-with-icon input[type=text].bc-date-picker-input {
   padding-right: 40px;
 }
 
 
-.bc_input-with-icon {
+.bc-input-with-icon {
   position: relative;
 }
 
-.bc_input-with-icon i {
+.bc-input-with-icon i {
   position: absolute;
   right: 0;
   top: 8px;
@@ -281,11 +284,11 @@ input[type=text].bc_date-picker-input:focus {
   transition: .3s;
 }
 
-.bc_input-with-icon input[type=text].bc_date-picker-input:focus + i {
+.bc-input-with-icon input[type=text].bc-date-picker-input:focus + i {
   color: dodgerBlue;
 }
 
-.bc_calendar-icon {
+.bc-calendar-icon {
 	background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBkPSJNMzY4LjAwNSAyNzJoLTk2djk2aDk2di05NnptLTMyLTIwOHYzMmgtMTYwVjY0aC00OHYzMmgtMjQuMDFjLTIyLjAwMiAwLTQwIDE3Ljk5OC00MCA0MHYyNzJjMCAyMi4wMDIgMTcuOTk4IDQwIDQwIDQwaDMwNC4wMWMyMi4wMDIgMCA0MC0xNy45OTggNDAtNDBWMTM2YzAtMjIuMDAyLTE3Ljk5OC00MC00MC00MGgtMjRWNjRoLTQ4em03MiAzNDRoLTMwNC4wMVYxOTZoMzA0LjAxdjIxMnoiLz48L3N2Zz4=);
   background-repeat: no-repeat;
   margin: 8px;
