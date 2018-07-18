@@ -50,6 +50,7 @@ declare global {
       'setEvents': (events: Day[]) => void;
       'showNextMonth': () => void;
       'showPreviousMonth': () => void;
+      'showRangeSelect': boolean;
       'showToolbar': boolean;
     }
   }
@@ -81,6 +82,7 @@ declare global {
       'onOnRangeSelected'?: (event: CustomEvent) => void;
       'onOnRemoveEvent'?: (event: CustomEvent) => void;
       'onOnReplaceEvent'?: (event: CustomEvent) => void;
+      'showRangeSelect'?: boolean;
       'showToolbar'?: boolean;
     }
   }

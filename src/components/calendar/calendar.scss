@@ -46,7 +46,7 @@ $danger: #f55b5b;
 
 .bc-nav-button-left {
   @extend %blank-button;
-	background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBkPSJNMjE3LjkgMjU2TDM0NSAxMjljOS40LTkuNCA5LjQtMjQuNiAwLTMzLjktOS40LTkuNC0yNC42LTkuMy0zNCAwTDE2NyAyMzljLTkuMSA5LjEtOS4zIDIzLjctLjcgMzMuMUwzMTAuOSA0MTdjNC43IDQuNyAxMC45IDcgMTcgN3MxMi4zLTIuMyAxNy03YzkuNC05LjQgOS40LTI0LjYgMC0zMy45TDIxNy45IDI1NnoiLz48L3N2Zz4=);
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBkPSJNMjE3LjkgMjU2TDM0NSAxMjljOS40LTkuNCA5LjQtMjQuNiAwLTMzLjktOS40LTkuNC0yNC42LTkuMy0zNCAwTDE2NyAyMzljLTkuMSA5LjEtOS4zIDIzLjctLjcgMzMuMUwzMTAuOSA0MTdjNC43IDQuNyAxMC45IDcgMTcgN3MxMi4zLTIuMyAxNy03YzkuNC05LjQgOS40LTI0LjYgMC0zMy45TDIxNy45IDI1NnoiLz48L3N2Zz4=);
   background-repeat: no-repeat;
   width: 25px;
   height: 25px;
@@ -76,6 +76,7 @@ $danger: #f55b5b;
 .bc-selection-select {
   @extend %base-select;
   width: 100%;
+  color: $grey-accent;
   padding: 4px;
   border-radius: 4px;
 }
@@ -170,9 +171,10 @@ $danger: #f55b5b;
   top: -20px;
 }
 
+
 @media (min-width: 440px) {
   .bc-day-event-dot {
-    left: 6.65vw;
+    left: 6.95vw;
   }
 }
 
@@ -200,13 +202,20 @@ $danger: #f55b5b;
   background-color: #d6d6d6;
 }
 
-.bc-calendar-toolbar-top {
+.bc-calendar-toolbar-main {
   display: grid;
-  grid-template-columns: 10% 90%;
+  grid-template-columns: 17% 83%;
   border-top: 1px solid $light-grey-accent;
   border-bottom: 1px solid $light-grey-accent;
   padding: 6px 0 6px 0;
   margin-bottom: 10px;
+}
+
+.bc-calendar-toolbar-second {
+  text-align: right;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid $light-grey-accent;
 }
 
 .bc-calendar-toolbar-bottom {
@@ -220,6 +229,18 @@ $danger: #f55b5b;
 .bc-toolbar-action-button {
   @extend %base-button;
   margin-left: 4px;
+}
+
+.bc-add-event-button {
+  width: 100%;
+}
+
+.bc-modify-events-button {
+  margin-left: 6px;
+}
+
+.bc-today-button {
+  width: 100%;
 }
 
 .bc-toolbar-end {
