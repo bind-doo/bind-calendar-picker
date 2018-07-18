@@ -26,12 +26,13 @@ export class Calendar {
 	@Event() onRemoveEvent: EventEmitter;
 
 	@Method()
-	selectDay(day, month, year): void {
-		this.month = month;
+	selectDay(date): void {
+		const { day, month, year } = date;
+		this.month = month - 1;
 		this.year = year;
-		this.days = this._getCalendarDays(year, month);
+		this.days = this._getCalendarDays(year, month - 1);
 		this._getCurrentMonthEvents();
-		this._selectDay({ day: day, month: month + 1, year: year });
+		this._selectDay({ day: day, month: month, year: year });
 	}
 
 	@Method()
@@ -51,7 +52,7 @@ export class Calendar {
 
 	@Method()
 	selectToday(): void {
-		this.selectDay(this.currentDay, this.currentMonth, this.currentYear);
+		this.selectDay({ day: this.currentDay, month: this.currentMonth, year: this.currentYear });
 	}
 
 	@Method()
@@ -204,7 +205,7 @@ export class Calendar {
 	private newDate: Date = new Date();
 
 	private currentDay: number = this.newDate.getDate();
-	private currentMonth: number = this.newDate.getMonth();
+	private currentMonth: number = this.newDate.getMonth() + 1;
 	private currentYear: number = this.newDate.getFullYear();
 
 	@State() private days: Array<Day> = [];
@@ -405,9 +406,9 @@ export class Calendar {
 		if (this.selectedDay === day) {
 			this.clearSelectedDay();
 		} else {
-			this.selectedDay = day;
-			this.dayIndex = this._getDayIndex(this.days, this.selectedDay);
-			this.onDaySelected.emit(day);
+			this.dayIndex = this._getDayIndex(this.days, day);
+			this.selectedDay = this.days[this.dayIndex];
+			this.onDaySelected.emit(this.selectedDay);
 			if (this.datePicker) {
 				this.pickedDate = this._formatPicked(day);
 				setTimeout(() => (this.showCalendar = false), 100);
@@ -489,7 +490,7 @@ export class Calendar {
 	}
 
 	private _isCurrentDay(date) {
-		return date.day === this.currentDay && date.month === this.currentMonth + 1 && date.year === this.currentYear;
+		return date.day === this.currentDay && date.month === this.currentMonth && date.year === this.currentYear;
 	}
 
 	render() {

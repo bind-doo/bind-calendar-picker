@@ -45,7 +45,7 @@ declare global {
       'languageCode': string;
       'removeEvent': (eventDay: Day) => void;
       'replaceEvent': (eventDay: Day) => void;
-      'selectDay': (day: any, month: any, year: any) => void;
+      'selectDay': (date: any) => void;
       'selectToday': () => void;
       'setEvents': (events: Day[]) => void;
       'showNextMonth': () => void;
