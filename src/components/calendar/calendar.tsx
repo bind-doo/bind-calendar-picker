@@ -578,7 +578,9 @@ export class Calendar {
 			<div class="bc-calendar-container">
 				<div class="bc-calendar-header">
 					<div class="bc-header-left" onClick={() => this._showPreviousMonth()}>
-						<button class="bc-nav-button-left"></button>
+						<button class="bc-nav-button-left">
+							<i class="bc-arrow-icon bc-arrow-left"></i>
+						</button>
 					</div>
 
 					<div class="bc-header-year">
@@ -597,7 +599,9 @@ export class Calendar {
 					</div>
 
 					<div class="bc-header-right" onClick={() => this._showNextMonth()}>
-						<button class="bc-nav-button-right"></button>
+						<button class="bc-nav-button-right">
+                            <i class="bc-arrow-icon bc-arrow-right"></i>
+						</button>
 					</div>
 				</div>
 
