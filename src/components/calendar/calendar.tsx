@@ -116,10 +116,6 @@ export class Calendar {
 			this._removeEventData(dayIndex, eventDayIndex);
 	}
 
-	// TODO: LATER - Add optional list that shows when event is clicked
-
-	// TODO: LATER - add own json with language
-
 	@State()
 	private languages = {
 		en: {
@@ -493,6 +489,16 @@ export class Calendar {
 		return date.day === this.currentDay && date.month === this.currentMonth && date.year === this.currentYear;
 	}
 
+    private _checkIsDateInRange(date, selectedDays) {
+        if (selectedDays.length < 2) return;
+
+        const current = new Date(date.year, date.month, date.day);
+        const firstSelected = new Date(selectedDays[0].year, selectedDays[0].month, selectedDays[0].day)
+        const lastSelected = new Date(selectedDays[1].year, selectedDays[1].month, selectedDays[1].day);
+
+        return (current >= firstSelected && current <= lastSelected);
+    }
+
 	render() {
 		let calendar;
 		let datePicker;
@@ -606,9 +612,9 @@ export class Calendar {
 					{this.days.map(date => (
 						<div
 							class={
-								(this.days.indexOf(date) == this.dayIndex || date === this.selectedDays[0] ? 'bc-active-day' : '')
+								(this.days.indexOf(date) == this.dayIndex || date === this.selectedDays[0] && this.selectedDays.length <= 1 ? 'bc-active-day' : '')
 								+
-								(date === this.selectedDays[1] ? 'bc-range-end-day' : '')
+								(this._checkIsDateInRange(date, this.selectedDays) ? 'bc-active-day' : '')
 							}
 							onClick={() => this.selectionType !== 'range' ? this._selectDay(date) : this._selectMultiple(date)}
 						>
