@@ -52,7 +52,18 @@ export class Calendar {
 
 	@Method()
 	selectToday(): void {
-		this.selectDay({ day: this.currentDay, month: this.currentMonth, year: this.currentYear });
+		const currentDate: Day = {
+			day: this.currentDay,
+			month: this.currentMonth,
+			year: this.currentYear
+		};
+
+		if (this.selectedDays.length > 0 && this.selectionType === 'range') {
+            this.clearSelectedDays();
+            this.selectedDays[0] = currentDate;
+		}
+
+		this.selectDay(currentDate);
 	}
 
 	@Method()
@@ -391,11 +402,11 @@ export class Calendar {
 		this._getCurrentMonthEvents();
 	}
 
-	private _changeSelection(event): void {
+	private _changeSelection(selection: string): void {
 		this.clearSelectedDay();
 		this.clearSelectedDays();
 		this.clearPickedDate();
-		this.selectionType = event.target.value;
+		this.selectionType = selection;
 	}
 
 	private _selectDay(day: Day): void {
@@ -412,7 +423,7 @@ export class Calendar {
 		}
 	}
 
-	private _selectMultiple(date: Day) {
+	private _selectMultiple(date: Day): void {
 
 		if (this.selectedDays.length === 2) {
 			this.clearSelectedDays();
@@ -473,7 +484,7 @@ export class Calendar {
 		this.clearSelectedDay();
 	}
 
-	private _switchCalendarBool() {
+	private _switchCalendarBool(): void {
 		this.showCalendar = !this.showCalendar;
 	}
 
@@ -485,11 +496,11 @@ export class Calendar {
 		return `${this._formatDate(day.day)}-${this._formatDate(day.month)}-${day.year.toString()}`;
 	}
 
-	private _isCurrentDay(date) {
+	private _isCurrentDay(date): boolean {
 		return date.day === this.currentDay && date.month === this.currentMonth && date.year === this.currentYear;
 	}
 
-    private _checkIsDateInRange(date, selectedDays) {
+    private _checkIsDateInRange(date, selectedDays): boolean {
         if (selectedDays.length < 2) return;
 
         const current = new Date(date.year, date.month, date.day);
@@ -562,7 +573,7 @@ export class Calendar {
 
 					{this.showRangeSelect ?
 						<div class="bc-calendar-toolbar-bottom">
-							<select class="bc-selection-select" onChange={(event: UIEvent) => this._changeSelection(event)}>
+							<select class="bc-selection-select" onChange={(event: UIEvent) => this._changeSelection(event.target['value'])}>
 								<option value="day" selected={true}>Day</option>
 								<option value="range">Range</option>
 							</select>
@@ -616,7 +627,7 @@ export class Calendar {
 					{this.days.map(date => (
 						<div
 							class={
-								(this.days.indexOf(date) == this.dayIndex || date === this.selectedDays[0] && this.selectedDays.length <= 1 ? 'bc-active-day' : '')
+								((this.days.indexOf(date) == this.dayIndex || date === this.selectedDays[0]) && this.selectedDays.length <= 1 ? 'bc-active-day' : '')
 								+
 								(this._checkIsDateInRange(date, this.selectedDays) ? 'bc-active-day' : '')
 							}
