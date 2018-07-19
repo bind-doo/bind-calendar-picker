@@ -626,7 +626,7 @@ export class Calendar {
 								}
 							>
 								{date.day}
-								<span class={date.hasEvent ? 'bc-day-event-dot' : ''} />
+								<span class={date.hasEvent ? 'bc-day-event-dot' : ''} style={date.hasEvent ? date.data[0].style : ''} />
 							</span>
 						</div>
 					))}

@@ -2,7 +2,7 @@
     day: number,
     month: number,
     year: number,
-    color?: string,
+    color?: any,
     hasEvent?: boolean,
     data?: any
   }
