@@ -34,7 +34,6 @@ declare global {
   namespace StencilComponents {
     interface BindCalendarPicker {
       'addEvent': (eventDay: Day) => void;
-      'changeYear': (year: any) => void;
       'clearPickedDate': () => void;
       'clearSelectedDay': () => void;
       'clearSelectedDays': () => void;
@@ -48,6 +47,8 @@ declare global {
       'selectDay': (date: any) => void;
       'selectToday': () => void;
       'setEvents': (events: Day[]) => void;
+      'setMonth': (month: any) => void;
+      'setYear': (year: any) => void;
       'showNextMonth': () => void;
       'showPreviousMonth': () => void;
       'showRangeSelect': boolean;
