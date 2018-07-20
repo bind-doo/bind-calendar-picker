@@ -1,10 +1,10 @@
-  export interface Day {
-    day: number,
-    month: number,
-    year: number,
-    color?: string,
-    hasEvent?: boolean,
-    data?: any
-  }
+export interface Day {
+  day: number,
+  month: number,
+  year: number,
+  style?: any,
+  hasEvent?: boolean,
+  data?: any
+}
 
 
