@@ -96,11 +96,6 @@ $danger: #f55b5b;
   margin-right: 10px;
 }
 
-.bc-header-month {
-  font-family: "Ubuntu Regular";
-  margin-right: 4px;
-}
-
 .bc-year-input-number {
   display: inline-block;
   width: 3.3em;
@@ -114,6 +109,22 @@ $danger: #f55b5b;
 
 .bc-calendar-days-name {
   margin-bottom: 20px;
+}
+
+.bc-day-container {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+@media (hover: hover) {
+  .bc-day-container:hover {
+    background-color: #347dda;
+
+    .bc-day-number, .bc-muted-day, .bc-current-day {
+      color: white !important;
+    }
+  }
 }
 
 .bc-day-name {
@@ -150,18 +161,6 @@ $danger: #f55b5b;
   color: white;
 
   .bc-muted-day, .bc-current-day, .bc-day-number {
-    color: white !important;
-  }
-}
-
-.bc-range-end-day {
-  background-color: $danger;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  color: white;
-
-  .bc-muted-day, .bc-current-day {
     color: white !important;
   }
 }
@@ -232,10 +231,6 @@ $danger: #f55b5b;
   width: 100%;
 }
 
-.bc-toolbar-button {
-  @extend %base-button;
-}
-
 .bc-toolbar-action-button {
   @extend %base-button;
   margin-left: 4px;
@@ -250,6 +245,7 @@ $danger: #f55b5b;
 }
 
 .bc-today-button {
+  @extend %base-button;
   width: 100%;
 }
 
@@ -320,7 +316,7 @@ input[type=text].bc-date-picker-input:focus {
 }
 
 .bc-calendar-icon {
-	background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBkPSJNMzY4LjAwNSAyNzJoLTk2djk2aDk2di05NnptLTMyLTIwOHYzMmgtMTYwVjY0aC00OHYzMmgtMjQuMDFjLTIyLjAwMiAwLTQwIDE3Ljk5OC00MCA0MHYyNzJjMCAyMi4wMDIgMTcuOTk4IDQwIDQwIDQwaDMwNC4wMWMyMi4wMDIgMCA0MC0xNy45OTggNDAtNDBWMTM2YzAtMjIuMDAyLTE3Ljk5OC00MC00MC00MGgtMjRWNjRoLTQ4em03MiAzNDRoLTMwNC4wMVYxOTZoMzA0LjAxdjIxMnoiLz48L3N2Zz4=);
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBkPSJNMzY4LjAwNSAyNzJoLTk2djk2aDk2di05NnptLTMyLTIwOHYzMmgtMTYwVjY0aC00OHYzMmgtMjQuMDFjLTIyLjAwMiAwLTQwIDE3Ljk5OC00MCA0MHYyNzJjMCAyMi4wMDIgMTcuOTk4IDQwIDQwIDQwaDMwNC4wMWMyMi4wMDIgMCA0MC0xNy45OTggNDAtNDBWMTM2YzAtMjIuMDAyLTE3Ljk5OC00MC00MC00MGgtMjRWNjRoLTQ4em03MiAzNDRoLTMwNC4wMVYxOTZoMzA0LjAxdjIxMnoiLz48L3N2Zz4=);
   background-repeat: no-repeat;
   margin: 8px;
   width: 10px;

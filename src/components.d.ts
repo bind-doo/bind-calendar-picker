@@ -34,7 +34,7 @@ declare global {
   namespace StencilComponents {
     interface BindCalendarPicker {
       'addEvent': (eventDay: Day) => void;
-      'changeYear': (year: any) => void;
+      'allowUnselectDate': boolean;
       'clearPickedDate': () => void;
       'clearSelectedDay': () => void;
       'clearSelectedDays': () => void;
@@ -48,6 +48,8 @@ declare global {
       'selectDay': (date: any) => void;
       'selectToday': () => void;
       'setEvents': (events: Day[]) => void;
+      'setMonth': (month: any) => void;
+      'setYear': (year: any) => void;
       'showNextMonth': () => void;
       'showPreviousMonth': () => void;
       'showRangeSelect': boolean;
@@ -74,6 +76,7 @@ declare global {
   }
   namespace JSXElements {
     export interface BindCalendarPickerAttributes extends HTMLAttributes {
+      'allowUnselectDate'?: boolean;
       'datePicker'?: boolean;
       'isSundayFirst'?: boolean;
       'languageCode'?: string;

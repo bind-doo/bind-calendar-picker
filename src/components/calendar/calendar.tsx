@@ -18,6 +18,7 @@ export class Calendar {
 	@Prop() showToolbar: boolean = false;
 	@Prop() datePicker: boolean = false;
 	@Prop() showRangeSelect: boolean = false;
+	@Prop() allowUnselectDate: boolean = false;
 
 	@Event() onDaySelected: EventEmitter;
 	@Event() onRangeSelected: EventEmitter;
@@ -46,8 +47,13 @@ export class Calendar {
 	}
 
 	@Method()
-	changeYear(year): void {
-		this._changeYear(year);
+	setYear(year): void {
+		this._setYear(year);
+	}
+
+	@Method()
+	setMonth(month): void {
+		this._setMonth(month);
 	}
 
 	@Method()
@@ -384,19 +390,16 @@ export class Calendar {
 		this._getCurrentMonthEvents();
 	}
 
-	private _changeYear(event?, year?): void {
+	private _setYear(event?, year?): void {
 		this.year = event.target.value || year;
 		this.month = 0;
 		this.days = this._getCalendarDays(this.year, this.month);
-		if (this.selectedDay)
-			this.dayIndex = this._getDayIndex(this.days, this.selectedDay);
+		if (this.selectedDay) this.dayIndex = this._getDayIndex(this.days, this.selectedDay);
 		this._getCurrentMonthEvents();
 	}
 
-	private _changeMonth(event): void {
-		this.month = this.languages[this.languageCode].months.indexOf(
-			event.target.value
-		);
+	private _setMonth(month): void {
+		this.month = this.languages[this.languageCode].months.indexOf(month);
 		this.days = this._getCalendarDays(this.year, this.month);
 		if (this.selectedDay) this.dayIndex = this._getDayIndex(this.days, this.selectedDay);
 		this._getCurrentMonthEvents();
@@ -410,7 +413,7 @@ export class Calendar {
 	}
 
 	private _selectDay(day: Day): void {
-		if (this.selectedDay === day) {
+		if (this.selectedDay === day && this.allowUnselectDate) {
 			this.clearSelectedDay();
 		} else {
 			this.dayIndex = this._getDayIndex(this.days, day);
@@ -597,7 +600,7 @@ export class Calendar {
 					<div class="bc-header-year">
 						<select
 							class="bc-header-month-select"
-							onChange={(event: UIEvent) => this._changeMonth(event)}
+							onChange={(event: UIEvent) => this._setMonth(event.target['value'])}
 						>
 							{months}
 						</select>
@@ -605,7 +608,7 @@ export class Calendar {
 							class="bc-year-input-number"
 							type="number"
 							value={this.year}
-							onChange={(event: UIEvent) => this._changeYear(event)}
+							onChange={(event: UIEvent) => this.setYear(event)}
 						/>
 					</div>
 
@@ -627,6 +630,8 @@ export class Calendar {
 					{this.days.map(date => (
 						<div
 							class={
+								('bc-day-container ')
+								+
 								((this.days.indexOf(date) == this.dayIndex || date === this.selectedDays[0]) && this.selectedDays.length <= 1 ? 'bc-active-day' : '')
 								+
 								(this._checkIsDateInRange(date, this.selectedDays) ? 'bc-active-day' : '')
