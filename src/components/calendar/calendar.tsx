@@ -18,6 +18,7 @@ export class Calendar {
 	@Prop() showToolbar: boolean = false;
 	@Prop() datePicker: boolean = false;
 	@Prop() showRangeSelect: boolean = false;
+	@Prop() allowUnselectDate: boolean = false;
 
 	@Event() onDaySelected: EventEmitter;
 	@Event() onRangeSelected: EventEmitter;
@@ -412,7 +413,7 @@ export class Calendar {
 	}
 
 	private _selectDay(day: Day): void {
-		if (this.selectedDay === day) {
+		if (this.selectedDay === day && this.allowUnselectDate) {
 			this.clearSelectedDay();
 		} else {
 			this.dayIndex = this._getDayIndex(this.days, day);
