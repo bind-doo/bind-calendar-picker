@@ -1,6 +1,6 @@
 {
   "name": "bind-calendar-picker",
-  "version": "0.1.9",
+  "version": "0.2.0",
   "description": "Calendar Web Component",
   "module": "dist/esm/index.js",
   "main": "dist/index.js",
@@ -10,21 +10,19 @@
     "dist/"
   ],
   "scripts": {
-    "build": "stencil build",
-    "dev": "sd concurrent \"stencil build --dev --watch\" \"stencil-dev-server\" ",
-    "serve": "stencil-dev-server",
-    "start": "npm run dev",
+    "build": "stencil build --prerender",
+    "start": "stencil build --dev --watch --serve",
     "test": "jest",
     "test.watch": "jest --watch"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@stencil/core": "^0.10.0",
+    "@stencil/router": "^0.2.2"
+  },
   "devDependencies": {
-    "@stencil/core": "^0.10.7",
-    "@stencil/dev-server": "latest",
-    "@stencil/utils": "latest",
     "@stencil/sass": "0.0.5",
-    "@types/jest": "^23.3.0",
-    "jest": "^23.4.1"
+    "@types/jest": "^21.1.1",
+    "jest": "^21.2.1"
   },
   "repository": {
     "type": "git",

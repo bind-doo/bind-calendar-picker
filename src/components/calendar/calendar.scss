@@ -1,14 +1,17 @@
-$selected-color: #00da79;
-$dot-color: #00ffb8;
-$background-color: white;
-$light-grey-accent: #e5e5e5;
-$grey-accent: #4b4b4b;
-$danger: #f55b5b;
-
+:root {
+  --background-color: white;
+  --selected-color: #00da79;
+  --day-hover-color: #347dda;
+  --event-dot-color: #00ffb8;
+  --text-normal-color: #e5e5e5;
+  --text-bold-color: #4b4b4b;
+  --day-number-color: #686868;
+  --danger: #f55b5b;
+}
 
 .bc-calendar-container {
   margin: 0 auto;
-  background-color: $background-color;
+  background-color: var(--background-color);
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
@@ -25,7 +28,7 @@ $danger: #f55b5b;
   text-align: center;
   font-size: 1.2em;
   font-family: "Ubuntu Regular";
-  color: $grey-accent;
+  color: var(--text-bold-color);
 }
 
 .bc-header-right {
@@ -45,7 +48,7 @@ $danger: #f55b5b;
 }
 
 .bc-arrow-icon {
-  border: solid #4b4b4b;
+  border: solid var(--text-bold-color);
   border-width: 0 3px 3px 0;
   display: inline-block;
   margin-top: 5px;
@@ -86,7 +89,7 @@ $danger: #f55b5b;
 .bc-selection-select {
   @extend %base-select;
   width: 100%;
-  color: $grey-accent;
+  color: var(--text-bold-color);
   padding: 4px;
   border-radius: 4px;
 }
@@ -104,7 +107,7 @@ $danger: #f55b5b;
   font-family: "Ubuntu Medium";
   font-size: 1em;
   font-weight: 600;
-  color: #4a4a4c;
+  color: var(--text-bold-color);
 }
 
 .bc-calendar-days-name {
@@ -119,7 +122,7 @@ $danger: #f55b5b;
 
 @media (hover: hover) {
   .bc-day-container:hover {
-    background-color: #347dda;
+    background-color: var(--day-hover-color);
 
     .bc-day-number, .bc-muted-day, .bc-current-day {
       color: white !important;
@@ -131,11 +134,11 @@ $danger: #f55b5b;
   font-family: "Ubuntu Regular";
   font-weight: 600;
   text-align: center;
-  color: $grey-accent;
+  color: var(--text-bold-color);
 }
 
 .bc-day-number {
-  color: #403b40;
+  color: var(--day-number-color);
 }
 
 .bc-calendar-days {
@@ -154,7 +157,7 @@ $danger: #f55b5b;
 }
 
 .bc-active-day {
-  background-color: $selected-color;
+  background-color: var(--selected-color);
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
@@ -172,7 +175,7 @@ $danger: #f55b5b;
 .bc-day-event-dot {
   height: 5px;
   width: 5px;
-  background-color: $dot-color;
+  background-color: var(--event-dot-color);
   border-radius: 50%;
   display: block;
   position: relative;
@@ -195,12 +198,12 @@ $danger: #f55b5b;
 
 
 .bc-current-day {
-  color: $selected-color !important;
+  color: var(--selected-color) !important;
 }
 
 %base-button {
-  background-color: $light-grey-accent;
-  color: $grey-accent;
+  background-color: var(--text-normal-color);
+  color: var(--text-bold-color);
   padding: 6px;
   border-radius: 4px;
   border: none;
@@ -214,8 +217,8 @@ $danger: #f55b5b;
 .bc-calendar-toolbar-main {
   display: grid;
   grid-template-columns: 17% 83%;
-  border-top: 1px solid $light-grey-accent;
-  border-bottom: 1px solid $light-grey-accent;
+  border-top: 1px solid var(--text-normal-color);
+  border-bottom: 1px solid var(--text-normal-color);
   padding: 6px 0 6px 0;
   margin-bottom: 10px;
 }
@@ -224,7 +227,7 @@ $danger: #f55b5b;
   text-align: right;
   margin-bottom: 10px;
   padding-bottom: 10px;
-  border-bottom: 1px solid $light-grey-accent;
+  border-bottom: 1px solid var(--text-normal-color);
 }
 
 .bc-calendar-toolbar-bottom {
@@ -254,7 +257,7 @@ $danger: #f55b5b;
 }
 
 .bc-button-danger {
-  background-color: $danger;
+  background-color: var(--danger);
   color: white;
 
   &:active {
