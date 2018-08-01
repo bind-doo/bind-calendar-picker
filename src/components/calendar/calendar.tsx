@@ -589,7 +589,7 @@ export class Calendar {
 		}
 
 		calendar = (
-			<div class="bc-calendar-container">
+			<div class="bc-calendar-container blue-accent">
 				<div class="bc-calendar-header">
 					<div class="bc-header-left" onClick={() => this._showPreviousMonth()}>
 						<button class="bc-nav-button-left">
