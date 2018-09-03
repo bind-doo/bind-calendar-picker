@@ -43,6 +43,7 @@ declare global {
       'getFullMonth': () => Day[];
       'isSundayFirst': boolean;
       'languageCode': string;
+      'rangeSelect': boolean;
       'removeEvent': (eventDay: Day) => void;
       'replaceEvent': (eventDay: Day) => void;
       'selectDay': (date: any) => void;
@@ -85,6 +86,7 @@ declare global {
       'onOnRangeSelected'?: (event: CustomEvent) => void;
       'onOnRemoveEvent'?: (event: CustomEvent) => void;
       'onOnReplaceEvent'?: (event: CustomEvent) => void;
+      'rangeSelect'?: boolean;
       'showRangeSelect'?: boolean;
       'showToolbar'?: boolean;
     }
