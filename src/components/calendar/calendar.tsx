@@ -573,17 +573,6 @@ export class Calendar {
 						:
 						''
 					}
-
-					{this.showRangeSelect ?
-						<div class="bc-calendar-toolbar-bottom">
-							<select class="bc-selection-select" onChange={(event: UIEvent) => this._changeSelection(event.target['value'])}>
-								<option value="day" selected={true}>Day</option>
-								<option value="range">Range</option>
-							</select>
-						</div>
-						:
-						''
-					}
 				</div>
 			);
 		}
@@ -652,6 +641,16 @@ export class Calendar {
 					))}
 				</div>
 				{toolbarTemplate}
+                {this.showRangeSelect ?
+                    <div class="bc-range-select">
+                        <select class="bc-selection-select" onChange={(event: UIEvent) => this._changeSelection(event.target['value'])}>
+                            <option value="day" selected={true}>Day</option>
+                            <option value="range">Range</option>
+                        </select>
+                    </div>
+                    :
+                    ''
+                }
 			</div>
 		);
 
