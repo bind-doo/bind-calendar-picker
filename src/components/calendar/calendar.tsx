@@ -19,6 +19,7 @@ export class Calendar {
 	@Prop() datePicker: boolean = false;
 	@Prop() showRangeSelect: boolean = false;
 	@Prop() allowUnselectDate: boolean = false;
+	@Prop() rangeSelect: boolean = false;
 
 	@Event() onDaySelected: EventEmitter;
 	@Event() onRangeSelected: EventEmitter;
@@ -235,7 +236,9 @@ export class Calendar {
 
 	@State() private showCalendar: boolean = false;
 	@State() private pickedDate: any;
-	@State() private selectionType: string = 'day';
+	@State() private selectionType: string = '';
+
+
 
 	componentWillLoad() {
 		if (this.isSundayFirst)
@@ -244,6 +247,8 @@ export class Calendar {
 			);
 		this.days = this._getCalendarDays(this.year, this.month);
 		this._getCurrentMonthEvents();
+        !this.rangeSelect ? this.selectionType = 'day' : this.selectionType = 'range';
+		console.log(this.selectionType)
 	}
 
 	normalizeDay(day: number): number {
