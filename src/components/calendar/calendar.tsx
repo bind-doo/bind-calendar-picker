@@ -458,7 +458,6 @@ export class Calendar {
         let inputSmallerThanStartDate = inputDate <= firstSelectedDate;
 
         if (this.selectedDays.length === 1) {
-            console.log(this.selectedDays, date);
             inputSmallerThanStartDate ? this.selectedDays.unshift(date) : this.selectedDays.push(date);
             this.pickedDate = `${this._formatPicked(this.selectedDays[0])} - ${this._formatPicked(this.selectedDays[1])}`;
             this.rangedDays = this._getRangedDays(this.selectedDays[0], this.selectedDays[1]);
