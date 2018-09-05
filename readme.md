@@ -4,6 +4,10 @@
 
 This is a calendar picker web component. Visit [documentation](https://github.com/bind-doo/bind-calendar-picker/wiki) page for more information about installation, usage and contributing. 
 
+- [Installation](https://github.com/bind-doo/bind-calendar-picker/wiki/Installation)
+- [Usage](https://github.com/bind-doo/bind-calendar-picker/wiki/Usage)
+- [Contributing](https://github.com/bind-doo/bind-calendar-picker/wiki/Contributing)
+
 **Issues, questions or feature requests**
 
 Please use github [issues](https://github.com/bind-doo/bind-calendar-picker/issues).
