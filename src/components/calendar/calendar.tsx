@@ -441,6 +441,8 @@ export class Calendar {
             this.clearPickedDate();
         }
 
+        if (this.selectedDays[0] == date) return;
+
         if (this.selectedDay && this.selectedDays.length === 0) {
             this.selectedDays.push(date);
             return;
@@ -449,6 +451,7 @@ export class Calendar {
         if (this.selectedDays.length === 0) {
             this.selectedDays.push(date);
             this.pickedDate = this._formatPicked(this.selectedDays[0]);
+            this.onRangeSelected.emit([date]);
             return;
         }
 
