@@ -444,7 +444,6 @@ export class Calendar {
         if (this.selectedDays[0] == date) return;
 
         if (this.selectedDay && this.selectedDays.length === 0) {
-            console.log('some shit happ')
             this.selectedDays.push(date);
             return;
         }
