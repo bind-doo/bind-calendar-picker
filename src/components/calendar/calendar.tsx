@@ -514,13 +514,18 @@ export class Calendar {
     }
 
     private _checkIsDateInRange(date, selectedDays): boolean {
-        if (selectedDays.length < 2) return;
+        if (selectedDays.length == 0) return;
 
         const current = new Date(date.year, date.month - 1, date.day);
         const firstSelected = new Date(selectedDays[0].year, selectedDays[0].month - 1, selectedDays[0].day)
-        const lastSelected = new Date(selectedDays[1].year, selectedDays[1].month - 1, selectedDays[1].day);
+        let lastSelected = date;
 
-        return (current >= firstSelected && current <= lastSelected);
+        if (this.selectedDays.length == 2) {
+            lastSelected = new Date(selectedDays[1].year, selectedDays[1].month - 1, selectedDays[1].day);
+            return (current >= firstSelected && current <= lastSelected);
+        } else {
+            return (current == firstSelected);
+        }
     }
 
     render() {
