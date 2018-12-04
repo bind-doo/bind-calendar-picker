@@ -27,7 +27,7 @@
 .bc-header-year {
   text-align: center;
   font-size: 1.2em;
-  font-family: "Ubuntu Regular";
+  font-family: 'Ubuntu Regular';
   color: var(--text-bold-color);
 }
 
@@ -40,7 +40,7 @@
   border: none;
   outline: 0;
   cursor: pointer;
-  
+
   &:focus {
     border: none;
     outline: 0;
@@ -76,8 +76,8 @@
 }
 
 %base-select {
-  border:0px;
-  outline:0px;
+  border: 0px;
+  outline: 0px;
   font-size: 1em;
   background-color: #f3f3f3;
   -webkit-border-radius: 3px;
@@ -104,7 +104,7 @@
   width: 3.3em;
   border: none;
   background-color: transparent;
-  font-family: "Ubuntu Medium";
+  font-family: 'Ubuntu Medium';
   font-size: 1em;
   font-weight: 600;
   color: var(--text-bold-color);
@@ -124,14 +124,16 @@
   .bc-day-container:hover {
     background-color: var(--day-hover-color);
 
-    .bc-day-number, .bc-muted-day, .bc-current-day {
+    .bc-day-number,
+    .bc-muted-day,
+    .bc-current-day {
       color: white !important;
     }
   }
 }
 
 .bc-day-name {
-  font-family: "Ubuntu Regular";
+  font-family: 'Ubuntu Regular';
   font-weight: 600;
   text-align: center;
   color: var(--text-bold-color);
@@ -151,7 +153,7 @@
 }
 
 .bc-calendar-days > div {
-  font-family: "Ubuntu Light";
+  font-family: 'Ubuntu Light';
   padding: 4px;
   cursor: pointer;
 }
@@ -163,7 +165,9 @@
   border-radius: 3px;
   color: white;
 
-  .bc-muted-day, .bc-current-day, .bc-day-number {
+  .bc-muted-day,
+  .bc-current-day,
+  .bc-day-number {
     color: white !important;
   }
 }
@@ -179,23 +183,9 @@
   border-radius: 50%;
   display: block;
   position: relative;
-  left: 80%;
-  top: -20px;
+  left: 7.6vw;
+  top: -20px !important;
 }
-
-
-@media (min-width: 440px) {
-  .bc-day-event-dot {
-    left: 6.95vw;
-  }
-}
-
-@media (min-width: 1150px) {
-  .bc-day-event-dot {
-    left: 6.95vw;
-  }
-}
-
 
 .bc-current-day {
   color: var(--selected-color) !important;
@@ -278,7 +268,7 @@
   margin: 16px 0 16px 0;
 }
 
-input[type=text].bc-date-picker-input {
+input[type='text'].bc-date-picker-input {
   width: 100%;
   background-color: white;
   border: 2px solid #aaa;
@@ -287,19 +277,18 @@ input[type=text].bc-date-picker-input {
   outline: none;
   padding: 8px;
   box-sizing: border-box;
-  transition: .3s;
+  transition: 0.3s;
   cursor: pointer;
 }
 
-input[type=text].bc-date-picker-input:focus {
+input[type='text'].bc-date-picker-input:focus {
   border-color: dodgerBlue;
   box-shadow: 0 0 8px 0 dodgerBlue;
 }
 
-.bc-input-with-icon input[type=text].bc-date-picker-input {
+.bc-input-with-icon input[type='text'].bc-date-picker-input {
   padding-right: 40px;
 }
-
 
 .bc-input-with-icon {
   position: relative;
@@ -311,10 +300,10 @@ input[type=text].bc-date-picker-input:focus {
   top: 8px;
   padding: 9px 8px;
   color: #aaa;
-  transition: .3s;
+  transition: 0.3s;
 }
 
-.bc-input-with-icon input[type=text].bc-date-picker-input:focus + i {
+.bc-input-with-icon input[type='text'].bc-date-picker-input:focus + i {
   color: dodgerBlue;
 }
 
