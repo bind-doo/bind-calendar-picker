@@ -1,4 +1,4 @@
-import { Component, Prop, Method, State, Event, EventEmitter } from '@stencil/core';
+import { Component, Prop, Method, State, Event, EventEmitter, Watch } from '@stencil/core';
 import { Day } from './interfaces/interfaces';
 
 @Component({
@@ -167,6 +167,16 @@ export class Calendar {
   @State() private pickedDate: any;
   @State() private selectionType: string = '';
 
+  @Watch('rangeSelect')
+  rangeWatchHandler(newValue) {
+    !newValue ? (this.selectionType = 'day') : (this.selectionType = 'range');
+  }
+
+  @Watch('isSundayFirst')
+  isSundayWatchHandler(newValue) {
+    if (newValue) this.languages[this.languageCode || 'en'].day_of_week_short.unshift(this.languages[this.languageCode || 'en'].day_of_week_short.pop());
+  }
+
   componentWillLoad() {
     if (this.isSundayFirst) this.languages[this.languageCode || 'en'].day_of_week_short.unshift(this.languages[this.languageCode || 'en'].day_of_week_short.pop());
     this.days = this._getCalendarDays(this.year, this.month);
@@ -211,19 +221,19 @@ export class Calendar {
       const day: Day =
         dayCounter < firstDayOfCurrentMonth
           ? {
-              day: ++previousMonthLastDay,
-              month: this.month,
-              year: date.getFullYear(),
-              hasEvent: false,
-              data: []
-            }
+            day: ++previousMonthLastDay,
+            month: this.month,
+            year: date.getFullYear(),
+            hasEvent: false,
+            data: []
+          }
           : {
-              day: isNextMonth ? ++firstDayOfNextMonth : dayCounter - firstDayOfCurrentMonth + 1,
-              month: isNextMonth ? this.month + 2 : this.month + 1,
-              year: date.getFullYear(),
-              hasEvent: false,
-              data: []
-            };
+            day: isNextMonth ? ++firstDayOfNextMonth : dayCounter - firstDayOfCurrentMonth + 1,
+            month: isNextMonth ? this.month + 2 : this.month + 1,
+            year: date.getFullYear(),
+            hasEvent: false,
+            data: []
+          };
 
       days.push(day);
     }
@@ -486,8 +496,8 @@ export class Calendar {
               </button>
             </div>
           ) : (
-            ''
-          )}
+              ''
+            )}
         </div>
       );
     }
@@ -542,8 +552,8 @@ export class Calendar {
             </select>
           </div>
         ) : (
-          ''
-        )}
+            ''
+          )}
       </div>
     );
 
