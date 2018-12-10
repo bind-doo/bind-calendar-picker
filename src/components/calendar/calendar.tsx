@@ -28,7 +28,8 @@ export class Calendar {
 			previousMonth: this.month + 1,
 			currentMonth: null,
 			previousYear: this.year,
-			currentYear: null
+			currentYear: null,
+			days: []
 		}
 		const { day, month, year } = date;
 		this.month = month - 1;
@@ -38,6 +39,7 @@ export class Calendar {
 		this._selectDay({ day: day, month: month, year: year });
 		dt.currentMonth = this.month + 1;
 		dt.currentYear = this.year;
+		dt.days = this.days;
 		this.onPeriodChange.emit(dt);
 	}
 
@@ -263,11 +265,7 @@ export class Calendar {
 	}
 
 	private _padDateString(date) {
-		if (date < 10) {
-			return `0${date}`;
-		} else {
-			return date;
-		}
+		return date < 10 ? `0${date}` : date;
 	}
 
 	private _getRangedDays(startDay: Day, endDay: Day): Array<Day> {
@@ -323,7 +321,8 @@ export class Calendar {
 			previousMonth: this.month + 1,
 			currentMonth: null,
 			previousYear: this.year,
-			currentYear: null
+			currentYear: null,
+			days: []
 		}
 
 		if (this.month === 0) {
@@ -334,12 +333,13 @@ export class Calendar {
 			--this.month;
 		}
 
-		date.currentMonth = this.month + 1;
-		date.currentYear = this.year;
-
 		this.days = this._getCalendarDays(this.year, this.month);
 		if (this.selectedDay) this.dayIndex = this._getDayIndex(this.days, this.selectedDay);
 		this._getCurrentMonthEvents();
+
+		date.currentMonth = this.month + 1;
+		date.currentYear = this.year;
+		date.days = this.days;
 		this.onPeriodChange.emit(date);
 	}
 
@@ -348,7 +348,8 @@ export class Calendar {
 			previousMonth: this.month + 1,
 			currentMonth: null,
 			previousYear: this.year,
-			currentYear: null
+			currentYear: null,
+			days: []
 		}
 
 		if (this.month === 11) {
@@ -358,12 +359,13 @@ export class Calendar {
 			++this.month;
 		}
 
-		date.currentMonth = this.month + 1;
-		date.currentYear = this.year;
-
 		this.days = this._getCalendarDays(this.year, this.month);
 		if (this.selectedDay) this.dayIndex = this._getDayIndex(this.days, this.selectedDay);
 		this._getCurrentMonthEvents();
+
+		date.currentMonth = this.month + 1;
+		date.currentYear = this.year;
+		date.days = this.days;
 		this.onPeriodChange.emit(date);
 	}
 
@@ -372,14 +374,17 @@ export class Calendar {
 			previousMonth: this.month + 1,
 			currentMonth: null,
 			previousYear: this.year,
-			currentYear: null
+			currentYear: null,
+			days: []
 		}
 		this.year = Number(event.target.value) || year;
 		this.days = this._getCalendarDays(this.year, this.month);
 		if (this.selectedDay) this.dayIndex = this._getDayIndex(this.days, this.selectedDay);
 		this._getCurrentMonthEvents();
+
 		date.currentMonth = this.month + 1;
 		date.currentYear = this.year;
+		date.days = this.days;
 		this.onPeriodChange.emit(date);
 	}
 
@@ -388,7 +393,8 @@ export class Calendar {
 			previousMonth: this.month + 1,
 			currentMonth: null,
 			previousYear: this.year,
-			currentYear: null
+			currentYear: null,
+			days: []
 		}
 		this.month = this.languages[this.languageCode].months.indexOf(month);
 		this.days = this._getCalendarDays(this.year, this.month);
@@ -396,6 +402,7 @@ export class Calendar {
 		this._getCurrentMonthEvents();
 		date.currentMonth = this.month + 1;
 		date.currentYear = this.year;
+		date.days = this.days;
 		this.onPeriodChange.emit(date);
 	}
 
