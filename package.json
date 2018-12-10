@@ -1,6 +1,6 @@
 {
   "name": "bind-calendar-picker",
-  "version": "0.2.9",
+  "version": "0.3.0",
   "description": "Calendar Web Component",
   "module": "dist/esm/index.js",
   "main": "dist/index.js",

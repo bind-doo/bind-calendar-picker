@@ -83,6 +83,7 @@ declare global {
       'languageCode'?: string;
       'onOnAddEvent'?: (event: CustomEvent) => void;
       'onOnDaySelected'?: (event: CustomEvent) => void;
+      'onOnPeriodChange'?: (event: CustomEvent) => void;
       'onOnRangeSelected'?: (event: CustomEvent) => void;
       'onOnRemoveEvent'?: (event: CustomEvent) => void;
       'onOnReplaceEvent'?: (event: CustomEvent) => void;
