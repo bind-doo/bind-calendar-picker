@@ -136,6 +136,11 @@ export class Calendar {
 		if (eventDayIndex !== -1 && dayIndex !== -1) this._removeEventData(dayIndex, eventDayIndex);
 	}
 
+	@Method()
+	getCalendarDates(): Array<any> {
+		return this.days;
+	}
+
 	@State()
 	private languages = {
 		en: {
@@ -161,7 +166,7 @@ export class Calendar {
 	private currentMonth: number = this.newDate.getMonth() + 1;
 	private currentYear: number = this.newDate.getFullYear();
 
-	@State() public days: Array<Day> = [];
+	@State() private days: Array<Day> = [];
 	@State() private events: Array<Day> = [];
 	@State() private rangedDays: Array<Day> = [];
 

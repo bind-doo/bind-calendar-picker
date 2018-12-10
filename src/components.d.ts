@@ -39,6 +39,7 @@ declare global {
       'clearSelectedDay': () => void;
       'clearSelectedDays': () => void;
       'datePicker': boolean;
+      'getCalendarDates': () => any[];
       'getEvents': () => Day[];
       'getFullMonth': () => Day[];
       'isSundayFirst': boolean;
