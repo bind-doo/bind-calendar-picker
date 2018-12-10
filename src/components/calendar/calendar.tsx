@@ -255,11 +255,19 @@ export class Calendar {
 						data: []
 					};
 
-			day['dateString'] = `${day.year}-${day.month}-${day.day}`;
+			day['dateString'] = `${day.year}-${this._padDateString(day.month)}-${this._padDateString(day.day)}`;
 			days.push(day);
 		}
 
 		return days;
+	}
+
+	private _padDateString(date) {
+		if (date < 10) {
+			return `0${date}`;
+		} else {
+			return date;
+		}
 	}
 
 	private _getRangedDays(startDay: Day, endDay: Day): Array<Day> {
