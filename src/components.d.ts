@@ -83,6 +83,7 @@ declare global {
       'isSundayFirst'?: boolean;
       'languageCode'?: string;
       'onOnAddEvent'?: (event: CustomEvent) => void;
+      'onOnCalendarInit'?: (event: CustomEvent) => void;
       'onOnDaySelected'?: (event: CustomEvent) => void;
       'onOnPeriodChange'?: (event: CustomEvent) => void;
       'onOnRangeSelected'?: (event: CustomEvent) => void;

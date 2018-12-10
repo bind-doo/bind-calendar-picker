@@ -36,6 +36,10 @@
     component.addEventListener("onPeriodChange", event => {
       console.log(event.detail);
     })
+
+    component.addEventListener("onCalendarInit", event => {
+      console.log(event.detail);
+    })
   })();
 
   function setDate(day, month, year) {

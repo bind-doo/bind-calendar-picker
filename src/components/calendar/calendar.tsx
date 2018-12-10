@@ -20,6 +20,7 @@ export class Calendar {
 	@Event() onReplaceEvent: EventEmitter;
 	@Event() onRemoveEvent: EventEmitter;
 	@Event() onPeriodChange: EventEmitter;
+	@Event() onCalendarInit: EventEmitter;
 
 	@Method()
 	selectDay(date): void {
@@ -197,6 +198,10 @@ export class Calendar {
 		this.days = this._getCalendarDays(this.year, this.month);
 		this._getCurrentMonthEvents();
 		!this.rangeSelect ? (this.selectionType = 'day') : (this.selectionType = 'range');
+	}
+
+	componentDidLoad() {
+		this.onCalendarInit.emit(this.days);
 	}
 
 	normalizeDay(day: number): number {
