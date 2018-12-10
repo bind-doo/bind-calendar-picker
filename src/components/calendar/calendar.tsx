@@ -356,7 +356,7 @@ export class Calendar {
 			previousYear: this.year,
 			currentYear: null
 		}
-		this.year = event.target.value || year;
+		this.year = Number(event.target.value) || year;
 		this.days = this._getCalendarDays(this.year, this.month);
 		if (this.selectedDay) this.dayIndex = this._getDayIndex(this.days, this.selectedDay);
 		this._getCurrentMonthEvents();
@@ -567,7 +567,7 @@ export class Calendar {
 						<select class="bc-header-month-select" onChange={(event: UIEvent) => this._setMonth(event.target['value'])}>
 							{months}
 						</select>
-						<input class="bc-year-input-number" type="number" value={this.year} onChange={(event: UIEvent) => this.setYear(event)} />
+						<input class="bc-year-input-number" type="number" value={this.year} onClick={(event: UIEvent) => this.setYear(event)} onChange={(event: UIEvent) => this.setYear(event)} />
 					</div>
 
 					<div class="bc-header-right" onClick={() => this._showNextMonth()}>
